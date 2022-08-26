@@ -4,37 +4,37 @@ const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      minlength: [2, 'поле "Имя" должно быть не менее 2 символов'],
-      maxlength: [100, 'поле "Имя" должно быть не более 100 символов'],
-      required: [true, 'поле "Имя" необходимо заполнить'],
+      minlength: 2,
+      maxlength: 100,
+      required: true,
     },
     email: {
       type: String,
       unique: true,
-      required: [true, 'поле "Email" необходимо заполнить'],
+      required: true,
     },
     password: {
       type: String,
-      minlength: [6, 'поле "Пароль" должно быть не менее 6 символов'],
-      maxlength: [100, 'поле "Пароль" должно быть не более 100 символов'],
-      required: [true, 'поле "Пароль" необходимо заполнить'],
+      minlength: 6,
+      maxlength: 100,
+      required: true,
       select: false,
     },
     dateOfBirth: {
       type: Number,
-      required: [true, 'поле "День рождения" необходимо заполнить'],
+      required: true,
     },
     male: {
       type: Boolean,
-      required: [true, 'поле "Пол" необходимо заполнить'],
+      required: true,
     },
     female: {
       type: Boolean,
-      required: [true, 'поле "Пол" необходимо заполнить'],
+      required: true,
     },
     avatar: {
       type: String,
-      required: [true, 'поле "Аватар" необходимо заполнить'],
+      required: true,
     },
   },
   { versionKey: false }
