@@ -130,3 +130,20 @@ module.exports.patchUser = (req, res, next) => {
       .catch((err) => next(err));
   }
 };
+
+module.exports.getUsers = (req, res, next) => {
+  const { id } = req.body;
+
+  User.find({ _id: { $ne: id } })
+    .then((users) => {
+      res.status(200).json({
+        data: users.map((item) => ({
+          _id: item._id,
+          name: item.name,
+          dateOfBirth: item.dateOfBirth,
+          avatar: item.avatar,
+        })),
+      });
+    })
+    .catch((err) => next(err));
+};
